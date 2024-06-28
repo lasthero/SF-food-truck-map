@@ -16,7 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+     
+      <body className={inter.className}>
+      <header className="bg-red-600 p-6 shadow-md text-center">
+        <h1 className="text-4xl text-white font-bold">SF Food Truck Map</h1>
+      </header>
+      <main>{children}</main>
+      </body>
     </html>
   );
 }
