@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node utils/fetch-and-parse.js",
-    "build": "npm run prebuild && next build",
+    "fetch-data": "node utils/fetch-and-parse.js",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
