@@ -1,4 +1,5 @@
 const axios = require('axios');
+const dotenv = require('dotenv');
 const nlp = require('compromise');
 const fs = require('fs');
 
@@ -31,7 +32,8 @@ const writeToJSON = (data) => {
     }
     });
 }
-axios.get('https://data.sfgov.org/resource/rqzj-sfat.json')
+dotenv.config();
+axios.get(process.env.SF_FOODTRUCK_ENDPOINT ?? '')
   .then(response => {
     let data = response.data;
     data.forEach(item => {
