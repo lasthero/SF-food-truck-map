@@ -2,7 +2,7 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 const nlp = require('compromise');
 const fs = require('fs');
-
+const path = require('path');
 const foodItems = [
     'Asian', 'Gyro', 'Tacos', 'Pizzas', 'American', 'Fried Chicken', 'South American', 'Salad', 'Sandwich', 'Others'
   ];
@@ -22,9 +22,9 @@ const extractFoodItems =  (text) => {
 const writeToJSON = (data) => {
     // Convert the data to a JSON string
     const jsonData = JSON.stringify(data, null, 2);
-
+    const filePath = path.join(process.cwd(), 'public', 'foodtruck-info.json');
     // Write the JSON string to a file
-    fs.writeFile('public/foodtruck-info.json', jsonData, (err) => {
+    fs.writeFile(filePath, jsonData, (err) => {
     if (err) {
         console.error('Error writing to file', err);
     } else {
